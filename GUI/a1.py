@@ -6,16 +6,18 @@ root = Tk()
 
 root.title("Currency Converter")
 
-class sum:
+class Sum: 
+    def _init_(self)
+        
 
-    # Clear Function 
     def clear(self):
-        self.__init__()
-        e1.delete(0, END)
+        e1.delete(0,END)
 
-    # Converter Function
+# Converter Function
+    def conversion(self)
 
-s = sum()
+
+s = Sum()
 
 l1 = Label(root, text="Currency Converter", font=("Arial", 20)).grid(row=0, columnspan=6, sticky='N')
 l2 = Label(root, text="Amount").grid(row=1, column=1, padx=10, sticky='W')
