@@ -46,28 +46,22 @@ class Currency(Tk):
         # Label Add 
         self.amount_entry = Entry(self.amount_frame, width=40)
         self.amount_entry.pack(side=LEFT)
-
-        # self.validator= Label(self.amount_frame, self.image)
-        # self.validator.pack(side=RIGHT)
-
-        # self.image = PhotoImage()
-        # self.image = Label(image=self.img)
-
-        # # styling 
-        # self.validator_img.configure(padx=10, bg="#ffe8e8")
-
-        # if self.image < 0: 
-        #     self.validator_img.configure(file="python-tkinter/right.gif")
-        # else: 
-        #     self.validator_img.configure(file="python-tkinter/wrong.gif")
         
-        self.image = PhotoImage(file=DIRNAME + "/right.gif")
-        self.image_label = Label(self.image)
-        
-        self.validation = Label(image=self.image_label)
-        self.validation.pack(side=RIGHT)
+        self.wrong = PhotoImage(file=DIRNAME + "\\wrong.png")
+        self.wrong = self.wrong.subsample(20,20)
 
+        self.right = PhotoImage(file=DIRNAME + "\\right.png")
+        self.right = self.right.subsample(20,20)
         
+        self.validation = Label(self.amount_frame,image=self.wrong)
+        self.validation.pack(side=RIGHT, padx=10)
+
+
+        if (self.amount_entry.get() != ""):
+            self.validation.configure(image=self.right)
+        else:
+            self.validation.configure(image=self.wrong)
+            
         
     def add_buttons(self):
 
