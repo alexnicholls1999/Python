@@ -1,0 +1,77 @@
+from tkinter import *
+from tkinter import messagebox
+import os
+
+DIRNAME, FILENAME = os.path.split(os.path.abspath(__file__))
+
+class Newsletter(Tk): 
+    def __init__(self):
+        Tk.__init__(self)
+        
+        self.title("Newsletter")
+        self.configure(bg="#eee", padx=10, pady=10)
+
+        # Add Tk Components 
+        self.add_header_label()
+        self.add_instruction_label()
+        self.add_email_label()
+        self.add_email_entry()
+        self.add_email_image()
+        self.add_buttons()
+
+    def add_header_label(self):
+        # Adding Label
+        self.header_label = Label(text="RECEIVE OUR NEWSLETTER")
+        self.header_label.pack(fill=X)
+
+        # Styling 
+        self.header_label.configure(font="Arial 14", padx=10, pady=10)
+
+    def add_instruction_label(self):
+        # Label 
+        self.instruction_label = Label(text="Please enter your email below to recieve our newsletter.")
+        self.instruction_label.pack(fill=X)
+
+        # Styling 
+        self.instruction_label.configure(padx=10, pady=10)
+
+    def add_email_label(self):
+        # Frame
+        self.email_frame = Frame()
+        self.email_frame.pack(fill=X)
+
+        self.email_frame_2 = Frame(self.email_frame)
+        self.email_frame_2.pack(side=LEFT)
+
+        self.email_label = Label(self.email_frame_2, text="Email:")
+        self.email_label.pack(side=LEFT)
+        
+
+        # Styling
+        self.email_label.configure(padx=10, pady=10)
+        
+    def add_email_entry(self):
+        # Entry
+        self.email_entry = Entry(self.email_frame_2, width=30)
+        self.email_entry.pack(side=RIGHT)
+        # Styling
+        self.email_entry.configure(border=2, fg="#f00")
+
+    def add_email_image(self):
+        self.default = PhotoImage(file=DIRNAME + "\\default.gif")
+        self.email_image = Label(self.email_frame, self.default)
+        self.email_image.pack(side=LEFT)
+
+    def add_buttons(self):
+        # Frame
+
+        # Subscribe Button
+        self.subscribe_button = Button(text="Subscribe")
+        self.subscribe_button.pack(fill=X)
+
+        # Styling
+        self.subscribe_button.configure(bg="#fee")
+
+       
+gui = Newsletter() 
+gui.mainloop()
